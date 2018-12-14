@@ -78,3 +78,48 @@
     |   forms.py   | Εξειδίκευση βιβλιοθήκης φορμών/ οθόνων
     +--------------+ για τη συγκεκριμένη εφαρμογή
     
+
+
+4) Ακολουθεί η δομή της βάσης δεδομένων (basketball.db):
+
+
+club (πίνακας ομάδων)
+---------------------
+id          INTEGER (NOT NULL, PRIMARY KEY, AUTOINCREMENT)
+name        TEXT    (NOT NULL, UNIQUE)
+
+
+country (πίνακας χωρών)
+-----------------------
+id          INTEGER (NOT NULL, PRIMARY KEY, AUTOINCREMENT)
+name        TEXT    (NOT NULL, UNIQUE)
+
+
+position (πίνακας θέσεων παικτών)
+---------------------------------
+id          INTEGER (NOT NULL, PRIMARY KEY, AUTOINCREMENT)
+name        TEXT    (NOT NULL, UNIQUE)
+
+
+coach (πίνακας προπονητών)
+--------------------------
+id          INTEGER (NOT NULL, PRIMARY KEY, AUTOINCREMENT)
+name        TEXT    (NOT NULL, UNIQUE)
+club_id     INTEGER (related to club.id)
+country_id  INTEGER (related to country.id)
+birth       INTEGER
+
+
+player (πίνακας παικτών)
+------------------------
+id          INTEGER (NOT NULL, PRIMARY KEY, AUTOINCREMENT)
+name        TEXT    (NOT NULL, UNIQUE)
+club_id     INTEGER (related to club.id)
+country_id  INTEGER (related to country.id)
+birth       INTEGER
+position_id INTEGER (related to position.id)
+height      INTEGER
+dorsal      INTEGER
+
+
+---
